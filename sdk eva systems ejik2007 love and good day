@@ -1,0 +1,484 @@
+String wfile="dia_log_2016_1_15_6_";
+float Data_conf=1;
+PImage  shield1,shield2,shield3,shield4,shield,shield0;
+//PImage  logo;
+int biged;
+int h;
+String J=":";
+String X=":";
+String PRJ=")";
+String JXPRJ="";
+PImage coollcatcam;
+String[]  vbn;
+int ff;
+FTPClient ftp;
+int nom=5, nomq,nx1,ny1,ty1;
+String sdp1="",das="";
+int datt7,txtout,nx,ny,gr,dd1;
+ String liness[];
+ int yyt;
+int bv,bv1 ;
+String sdhp1="",txtin="",
+//filew="C://server3//RUN_data.csv";
+filew="dia_log1.csv";
+int tf6,tf7,tf8;
+PImage logo,on,off,logo2,logo3,logo4,logo5,logo6,logo7;
+PImage iii,iii1,iii2,pset;
+PImage bar1,bar43,bar87,bar100,button1,button2,button3,button4,button5;
+PImage goldbrobe_v1;
+PFont fontw;
+int wx=250,wy=22,wx1=250,wy1=172,wx2=250,wy2=324;
+int bit1,bit2,bit3,bit4,bit5,bit6,bit7,linc,c;
+int cdmc1,cdmc2,cdmc3,cmtm110,cmtm60;
+int wx3=250,wy3=472,wx4=15,wy4=335;
+int sxx,mttm1=3,mttm2=3,mttm3=3,mttm4=3,mttm5=3;
+
+
+void setup () {
+  size(540,960);
+  shield1=loadImage("_shield1.png");
+  shield2=loadImage("_shield2.png");
+  shield3=loadImage("_shield3.PNG");
+  shield4=loadImage("_shield4.PNG");
+  logo=loadImage("logo.png");
+//  goldbrobe_v1=loadImage("http://jx406.ucoz.net//-jx_project_u8h8_code_dendy.png");
+     mouseX=69;mouseY=96;
+      ftp = new FTPClient();
+iii = loadImage("pset.PNG");
+iii1 = loadImage("line1.png");
+iii2 = loadImage("line2.png");
+
+on = loadImage("_on.PNG"); 
+off = loadImage("_off.PNG"); 
+
+bar1 = loadImage("bar1.PNG");
+bar43 = loadImage("bar43.PNG");
+bar87 = loadImage("bar87.PNG");
+bar100 = loadImage("bar100.PNG");
+
+button1 = loadImage("bitton1.PNG");
+button2 = loadImage("bitton2.PNG");
+button3 = loadImage("bitton3.PNG");
+button4 = loadImage("bitton4.PNG");
+button5 = loadImage("bitton5.PNG");
+
+pset = loadImage("pset.PNG");
+     
+  }
+  
+void draw(){  
+  image (iii,0,0);
+
+if(gr==0){
+
+//connects();
+
+}
+gr=gr+1;
+if(gr>10){gr=0;};
+liness = loadStrings(filew);
+if(liness.length>5){
+hself();
+screen();
+//h=h+1;
+//if(h==1){save("//storage//sdcard1//h_lab//f7h7.jpg");h=160;};
+//if(h>1){h=160;
+// goldbrobe_v1=loadImage("//storage//sdcard1//h_lab//f7h7.jpg");
+
+//};
+ 
+
+};
+
+ shield0.resize(480,700);
+ tint(0, 153, 204, 126);
+tint(255, 126); 
+textSize(32);
+fill(255, 102, 153);
+text("GOOD DAY"+JXPRJ, mouseX-367+160+89,mouseY); 
+
+ image(shield0,0,0); 
+if(ff==0 ){
+coollcatcam= loadImage("http://www.parisapartment7eme.com//image_r.jpg");
+ff=1;
+};
+shield0.resize(200,200);
+image(coollcatcam,width-coollcatcam.width, height-coollcatcam.height);
+ tint(78, 12); 
+textSize(32);
+fill(255, 102, 153);
+text("GOOD DAY"+JXPRJ, mouseX-367+160+89,mouseY); 
+
+}
+  
+  
+  
+void hself() {
+  biged=biged+1;
+//p720logo=p720v1;
+if(biged<50){ shield=shield1;JXPRJ=J;};
+if(biged>100){ shield=shield2;JXPRJ=J+X;};
+if(biged>150){ shield=shield3;JXPRJ=J+X;};
+if(biged>200){ shield=shield4;JXPRJ=J+X+PRJ;};
+if(biged>250){ biged=140;};
+
+ shield0=  shield;
+ shield0.resize(480,700);
+ tint(0, 153, 204, 126);
+tint(255, 126); 
+textSize(32);
+fill(255, 102, 153);
+text("GOOD DAY"+JXPRJ, mouseX-367+160+89,mouseY); 
+
+ image(shield0,0,0); 
+ image(logo,0,0); 
+ 
+ 
+ 
+ //http://www.boeing.com/commercial/flight-tracker/
+  
+  }
+  
+  
+  
+  void connects(){  
+  try {
+     ftp.setRemoteHost("jx406.ucoz.net"); // ie. ftp.site.com
+    FTPMessageCollector listener = new FTPMessageCollector();
+    ftp.setMessageListener(listener);
+    // connect
+    println ("Connecting");
+    ftp.connect();
+
+    // login
+    println ("Logging in");
+    ftp.login("ejx406", "ejx406");
+
+    // set up passive ASCII transfers
+    println ("Setting up passive, ASCII transfers");
+    ftp.setConnectMode(FTPConnectMode.PASV);
+    ftp.setType(FTPTransferType.ASCII);
+
+    // get directory and print it to console
+    println ("Directory before put:");
+
+    String[] files = ftp.dir(".", true);
+    for (int i = 0; i < files.length; i++)  println (files[i]);
+// println ("------------------------------------Deleting file");
+  //ftp.delete("/dia_log.csv");
+    // copy file to server
+    println ("Putting file");
+
+
+ftp.get(filew,"dia_log.csv");
+  // C:\\server3\\dia_log.csv
+//ftp.put("//sdcard/file.txt", "dump.txt");
+    // get directory and print it to console
+    println ("Directory after pu t");
+dd1=1;
+    files = ftp.dir(".", true);
+    for (int i = 0; i < files.length; i++)
+     println (files[i]);
+
+    // copy file from server
+
+  //  println ("Getting file");
+
+  //  ftp.get("/localPath/test.txt" + ".copy", "/remotePath/test.txt");
+
+    // delete file from server
+  //  println ("Deleting file");
+  //  ftp.delete("/remotePath/test.txt");
+
+  
+    // get directory and print it to console
+ 
+    // Shut down client
+    println ("Quitting client");
+    ftp.quit();
+
+    String messages = listener.getLog();
+    println ("Listener log:");
+
+    println(messages);
+    println ("Test complete");
+
+  } catch (Exception e) {
+
+    println ("Demo failed");
+dd1=0;
+  }
+
+}
+
+
+
+void screen( ){
+ image (iii,0,0);
+ textSize(16);
+//text("word", 10, 30); 
+fill(255, 255, 255);
+//text("x= "+mouseX+" y= "+mouseY, 323, 540); 
+
+if ((mouseX>272)&(mouseX<460)&(mouseY>22)&(mouseY<111)){
+wx=270+mouseX-270;wy=22;};
+if ((mouseX>270)&(mouseX<460)&(mouseY>172)&(mouseY<264)){
+wx1=270+mouseX-270;wy1=174;};
+if ((mouseX>270)&(mouseX<460)&(mouseY>324)&(mouseY<412)){
+wx2=270+mouseX-270;wy2=322;};
+if ((mouseX>270)&(mouseX<460)&(mouseY>471)&(mouseY<557)){
+wx3=270+mouseX-270;wy3=472;};
+if ((mouseX>37)&(mouseX<230)&(mouseY>336)&(mouseY<426)){
+wx4=37+mouseX-37;wy4=336;};
+ image (iii1,wx,wy); 
+ image (iii1,wx1,wy1); 
+ image (iii1,wx2,wy2); 
+ image (iii2,wx3,wy3); 
+ image (iii2,wx4,wy4); 
+ sxx=sxx+1;
+ if((sxx>0)&(sxx<110)){ image (bar1,10,600); };
+ if((sxx>43)&(sxx<110)){  image (bar43,10,600);};
+ if((sxx>87)&(sxx<110)){  image (bar87,10,600);};
+ if((sxx>100)&(sxx<110)){  image (bar100,10,600);sxx=110; };
+if(sxx>110){sxx=110; };
+ if(sxx==110){
+  if ((mouseX>19)&(mouseX<110)&(mouseY>601)&(mouseY<694)){
+  image (button1,19,601); };
+  if ((mouseX>110)&(mouseX<203)&(mouseY>601)&(mouseY<694)){
+  image (button2,110,601); };
+  if ((mouseX>203)&(mouseX<293)&(mouseY>601)&(mouseY<694)){
+  image (button3,203,601); };
+  if ((mouseX>293)&(mouseX<386)&(mouseY>601)&(mouseY<694)){
+  image (button4,293,601); };
+   if ((mouseX>386)&(mouseX<473)&(mouseY>601)&(mouseY<694)){
+  image (button5,386,601); 
+   };
+ };
+ 
+ 
+ //String strroik= "18;2015-5-25 || 8:27:23;8:27; MTM 60  ;000; MTM 110 ;000; DMC 1 ;000; DMC 2;000; DMC 3 ; 000";
+
+//String[] listd = split(strroik, ';');
+// list[0] is now "Chernenko", list[1] is "Andropov"...
+
+ 
+liness = loadStrings(filew);
+println("there are " + liness.length + " liness");
+//for (int i = 0 ; i < liness.length; i++) {
+ // println(liness[i]);
+ println(liness[2]);
+//}
+fill(0, 0, 0);
+
+
+ textSize(12);
+//println(listd[13]);
+//println(listd[14]);
+
+
+
+if ((mouseX>272)&(mouseX<454)&(mouseY>22)&(mouseY<111)){
+println(liness.length*(mouseX-270)/186 );
+mttm1=(liness.length*(mouseX-270)/186 );
+};
+
+if ((mouseX>270)&(mouseX<454)&(mouseY>172)&(mouseY<264)){
+println(liness.length*(mouseX-270)/186 );
+mttm2=(liness.length*(mouseX-270)/186 );
+};
+
+if ((mouseX>270)&(mouseX<454)&(mouseY>324)&(mouseY<412)){
+println(liness.length*(mouseX-270)/186 );
+mttm3=(liness.length*(mouseX-270)/186 );
+};
+
+if ((mouseX>270)&(mouseX<454)&(mouseY>471)&(mouseY<557)){
+println(liness.length*(mouseX-270)/186 );
+mttm4=(liness.length*(mouseX-270)/186 );
+};
+
+
+if ((mouseX>37)&(mouseX<218)&(mouseY>336)&(mouseY<426)){
+println(liness.length*(mouseX-37)/186 );
+mttm5=(liness.length*(mouseX-37)/186 );
+};
+
+
+String strok = liness[mttm1];
+String[] listd = split(strok, ';');
+//println(listd[12]);
+text(""+listd[5], 334, 127); 
+text(""+listd[3], 412, 127); 
+
+
+
+
+//text(hour()+":"+minute()+":"+second(), xx+40, y+206);
+
+//txtint();
+//txtin=listd[13];
+println("in= "+txtin+" out = "+txtout+" "+((106-40)*txtout/120));
+//image (pset,270+(186*i/liness.length),106- ((106-40)*txtout/140)); 
+//int dfc=
+yyt=5;nx=0;ny=5;
+gre();
+println(">>>>>"+listd[yyt]);
+yyt=7;nx=0;ny=157;
+gre();
+println(">>>>>"+listd[yyt]);
+yyt=9;nx=0;ny=305;
+gre();
+println(">>>>>"+listd[yyt]);
+yyt=13;nx=0;ny=455;
+gre();
+println(">>>>>"+listd[yyt]);
+yyt=11;nx=-235;ny=319;
+gre();
+println(">>>>>"+listd[yyt]);
+ 
+ 
+ String strok3 = liness[liness.length-1];
+String[] listd3 = split(strok3, ';'); 
+
+
+ textSize(16);
+text(""+listd3[5],179, 80); 
+text(""+listd3[7], 179, 138); 
+text(""+listd3[9], 179, 192); 
+text(""+listd3[11], 179, 248); 
+text(""+listd3[13], 179, 298); 
+text(""+listd3[3], 115, 580); 
+text(listd3[1]+"."+listd3[2], 115, 536); 
+nom=mttm2;nomq=7;nx1=0;ny1=152;
+ter();
+
+
+nom=mttm3;nomq=9;nx1=0;ny1=152+147;
+ter();
+nom=mttm4;nomq=13;nx1=0;ny1=152+147+149;
+ter();
+nom=mttm5;nomq=11;nx1=-230;ny1=152+147+14;
+ter();
+
+
+ty1=ty1+1;
+if (ty1>10){
+  
+save("C:\\server3\\data.jpg");
+save("C:\\server3\\RUN_data.jpg"); 
+save("C:\\server3\\DIA_Client.jpg");
+//save("C:\\server3\\RUN_data.jpg");
+ty1=1;};
+
+
+}
+
+void ter(){
+  textSize(12);
+  String strok2 = liness[nom];
+String[] listd2 = split(strok2, ';'); 
+ text(""+listd2[nomq], 334+nx1, 127+ny1); 
+text(""+listd2[3], 412+nx1, 127+ny1);   
+ //das= ""+listd2[nomq];
+  
+  
+}
+
+
+void gre(){
+  for (int i = 3 ; i < liness.length; i++) {
+ //txtint();
+//txtin=listd[];
+ 
+  
+ String strok1 = liness[i];
+String[] listd1 = split(strok1, ';'); 
+
+  
+bv1=((106-40)*txtout/140);
+txtint();
+txtin=listd1[yyt];
+bv=((106-40)*txtout/140);
+if (bv>bv1){
+   for (int id = bv1 ; id < bv; id++) {
+   image (pset,270+nx+(186*i/liness.length),106+ny- id); 
+   };};
+    if (bv1>bv){
+   for (int id = bv ; id < bv1; id++) {
+   image (pset,270+nx+(186*i/liness.length),106+ny- id); 
+   };};
+    
+   
+   
+  //println(" bv "+bv+" bv1 "+bv);
+  
+  image (pset,270+nx+(186*i/liness.length),106+ny- bv); 
+stroke(255);
+line(270+nx+(186*(i)/liness.length),106+ny- bv,270+nx+(186*(i+1)/liness.length),106+ny- bv);
+
+
+ };}
+
+
+void txtint(){
+  
+sdp1=txtin;
+
+if(sdp1==null){sdp1="...";};
+
+if(sdp1.length() >=1){
+
+  sdhp1=""+sdp1.charAt(0);
+if(sdhp1.equals("0") == true) {tf6=0;datt7=tf6*1;};
+if(sdhp1.equals(".") == true) {tf6=0;tf7=0;tf8=0;datt7=tf6*1;};
+if(sdhp1.equals("_") == true) {tf6=0;datt7=tf6*1;};
+if(sdhp1.equals("1") == true) {tf6=1;datt7=tf6*1;};
+if(sdhp1.equals("2") == true) {tf6=2;datt7=tf6*1;};
+if(sdhp1.equals("3") == true) {tf6=3;datt7=tf6*1;};
+if(sdhp1.equals("4") == true) {tf6=4;datt7=tf6*1;};
+if(sdhp1.equals("5") == true) {tf6=5;datt7=tf6*1;};
+if(sdhp1.equals("6") == true) {tf6=6;datt7=tf6*1;};
+if(sdhp1.equals("7") == true) {tf6=7;datt7=tf6*1;};
+if(sdhp1.equals("8") == true) {tf6=8;datt7=tf6*1;};
+if(sdhp1.equals("9") == true) {tf6=9;datt7=tf6*1;};
+};
+
+if(sdp1.length() >=2){sdhp1=""+sdp1.charAt(1);
+if(sdhp1.equals(".") == true) {tf6=0;tf7=0;tf8=0;datt7=tf6*10+tf7*1;};
+if(sdhp1.equals("0") == true) {tf7=0;datt7=tf6*10+tf7*1;};
+if(sdhp1.equals("_") == true) {tf7=0;datt7=tf6*10+tf7*1;};
+if(sdhp1.equals("1") == true) {tf7=1;datt7=tf6*10+tf7*1;};
+if(sdhp1.equals("2") == true) {tf7=2;datt7=tf6*10+tf7*1;};
+if(sdhp1.equals("3") == true) {tf7=3;datt7=tf6*10+tf7*1;};
+if(sdhp1.equals("4") == true) {tf7=4;datt7=tf6*10+tf7*1;};
+if(sdhp1.equals("5") == true) {tf7=5;datt7=tf6*10+tf7*1;};
+if(sdhp1.equals("6") == true) {tf7=6;datt7=tf6*10+tf7*1;};
+if(sdhp1.equals("7") == true) {tf7=7;datt7=tf6*10+tf7*1;};
+if(sdhp1.equals("8") == true) {tf7=8;datt7=tf6*10+tf7*1;};
+if(sdhp1.equals("9") == true) {tf7=9;datt7=tf6*10+tf7*1;};
+
+};
+if(sdp1.length() >=3){sdhp1=""+sdp1.charAt(2);
+if(sdhp1.equals(".") == true) {tf6=0;tf7=0;tf8=0;datt7=tf6*100+tf7*10+tf8*1;};
+if(sdhp1.equals("0") == true) {tf8=0;datt7=tf6*100+tf7*10+tf8*1;};
+if(sdhp1.equals("_") == true) {tf8=0;datt7=tf6*100+tf7*10+tf8*1;};
+if(sdhp1.equals("1") == true) {tf8=1;datt7=tf6*100+tf7*10+tf8*1;};
+if(sdhp1.equals("2") == true) {tf8=2;datt7=tf6*100+tf7*10+tf8*1;};
+if(sdhp1.equals("3") == true) {tf8=3;datt7=tf6*100+tf7*10+tf8*1;};
+if(sdhp1.equals("4") == true) {tf8=4;datt7=tf6*100+tf7*10+tf8*1;};
+if(sdhp1.equals("5") == true) {tf8=5;datt7=tf6*100+tf7*10+tf8*1;};
+if(sdhp1.equals("6") == true) {tf8=6;datt7=tf6*100+tf7*10+tf8*1;};
+if(sdhp1.equals("7") == true) {tf8=7;datt7=tf6*100+tf7*10+tf8*1;};
+if(sdhp1.equals("8") == true) {tf8=8;datt7=tf6*100+tf7*10+tf8*1;};
+if(sdhp1.equals("9") == true) {tf8=9;datt7=tf6*100+tf7*10+tf8*1;};
+if((tf6==0)&&(tf7==0)&&(tf8==1)){tf8=0;};
+};
+txtout=datt7;
+
+
+}
+
+
+//jx408.ucoz.net.lab wacth & glases
+//bilets toor : http://www.boeing.com/commercial/flight-tracker/
+//bank account:http://www.statista.com/statistics/249564/bank-of-america-quarterly-net-interest-income/
