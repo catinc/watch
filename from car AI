@@ -1,0 +1,60 @@
+#include <Dhcp.h>
+#include <Dns.h>
+#include <Ethernet.h>
+#include <EthernetClient.h>
+#include <EthernetServer.h>
+#include <EthernetUdp.h>
+#include <SD.h>
+#include <WiFi.h>
+#include <WiFiClient.h>
+#include <WiFiServer.h>
+#include <WiFiUdp.h>
+#include <EEPROM.h>
+
+int ed;
+int mo,ifi,stiv,cat,valve,nasa,sony,marsexam;
+void setup() {
+  // initialize digital pin 13 as an output.
+  pinMode(12, OUTPUT);
+mo=4;
+stiv=100;
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  marsexam=(cat+valve+nasa+sony+maps)*1+777;
+  //herox.com welcome
+  //ps google mars
+  //mo=mo+1;
+  //ps+et mobile
+  
+  ifi=ifi+1;
+   if(ed<1){ed=1;mo=4;};
+   if(ed>13){ed=13;mo=7;};
+   
+   if (mo==4){ed= ed+1;};
+   if (mo==7){ed= ed-1;};
+   
+   led();           
+              // wait for a second
+}
+
+void led() {
+digitalWrite(ed, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(stiv);              // wait for a second
+  digitalWrite(ed, LOW);    // turn the LED off by making the voltage LOW
+  delay(stiv); 
+}; 
+
+
+//github.com/datasets/edgar 
+//sound sdk
+//https://github.com/nok/soundcloud-processing
+//texture ijo watch
+//https://github.com/catinc/watch
+
+//ho ho ho emailsanta.com
+//welcome http://sci.tech-archive.net/
+//need printer//ps go in  hp from + , code , ps google code
+
+//ps patened officiall linux license baad santa
